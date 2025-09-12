@@ -1,27 +1,21 @@
-/* Pengaturan Dasar & Font */
+/* === GAYA UMUM & BAGIAN ATAS === */
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
     color: #333;
+    background-color: #f4f7f6;
 }
 
 .container {
-    max-width: 1100px;
-    margin: auto;
-    overflow: hidden;
-    padding: 0 20px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-
-
-/* Header & Navigasi */
 header {
-    background: #ffffff;
-    color: #333;
-    padding: 1rem 0;
-    border-bottom: 1px solid #ddd;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 15px 0;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -33,270 +27,167 @@ header .container {
     align-items: center;
 }
 
-header .logo {
-    font-size: 1.5rem;
+.logo {
     font-weight: 700;
-    color: #007bff;
+    font-size: 24px;
     text-decoration: none;
+    color: #2c3e50;
 }
 
-header nav ul {
+nav ul {
+    list-style: none;
     margin: 0;
     padding: 0;
-    list-style: none;
+    display: flex;
+    gap: 25px;
 }
 
-header nav ul li {
-    display: inline;
-    margin-left: 20px;
-}
-
-header nav ul li a {
-    color: #555;
+nav a {
     text-decoration: none;
+    color: #555;
     font-weight: 600;
-    transition: color 0.3s ease;
+    transition: color 0.2s;
 }
 
-header nav ul li a:hover,
-header nav ul li a.active {
-    color: #007bff;
+nav a:hover, nav a.active {
+    color: #3498db;
 }
 
-/* Bagian Hero (Halaman Utama) */
+main {
+    padding-top: 20px;
+}
+
+section {
+    padding: 60px 0;
+}
+
+/* === HERO SECTION === */
 .hero {
-    background: #007bff;
-    color: #fff;
+    background-color: #3498db;
+    color: white;
     text-align: center;
-    padding: 100px 0;
+    padding: 80px 0;
 }
 
 .hero h1 {
-    font-size: 2.8rem;
+    font-size: 42px;
     margin-bottom: 10px;
 }
 
 .hero p {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
+    font-size: 18px;
+    margin-bottom: 30px;
 }
 
-.btn {
-    display: inline-block;
-    background: #ffffff;
-    color: #007bff;
-    padding: 10px 20px;
-    text-decoration: none;
+.hero .btn {
+    background-color: white;
+    color: #3498db;
+    padding: 12px 25px;
     border-radius: 5px;
+    text-decoration: none;
     font-weight: 600;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.2s, color 0.2s;
+}
+.hero .btn:hover {
+    background-color: #f1f1f1;
 }
 
-.btn:hover {
-    background-color: #f0f0f0;
-}
-
-/* Bagian Konten Umum */
-main section {
-    padding: 60px 0;
-}
-
-h2 {
+/* === TENTANG KAMI & VISI MISI SECTION === */
+#tentang-kami h2, #visi-misi h2 {
     text-align: center;
     margin-bottom: 40px;
-    font-size: 2rem;
+    font-size: 32px;
+    color: #2c3e50;
 }
 
-.card {
+#tentang-kami p {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+.visi-misi-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.info-card { /* Class untuk Visi & Misi */
     background: #fff;
-    padding: 20px;
+    padding: 25px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    margin-bottom: 20px;
-}
-
-.visi-misi-grid, .kegiatan-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-}
-
-/* Halaman Struktur Organisasi */
-.page-header {
-    background: #f9f9f9;
-    padding: 40px 0;
-    text-align: center;
-    border-bottom: 1px solid #ddd;
-}
-
-.struktur-org ul {
-    list-style-type: none;
-    padding: 0;
-    position: relative;
-    text-align: center;
-}
-
-.struktur-org li {
-    display: inline-block;
-    vertical-align: top;
-    text-align: center;
-    padding: 20px 5px;
-    position: relative;
-}
-
-.struktur-org .pengurus {
-    background: #fff;
-    padding: 15px;
-    border: 2px solid #007bff;
-    border-radius: 8px;
-    display: inline-block;
-    min-width: 180px;
-}
-
-.struktur-org .pengurus strong {
-    display: block;
-    font-size: 1.1rem;
-    color: #007bff;
-}
-
-.struktur-org .pengurus span {
-    font-size: 0.9rem;
-    color: #555;
-}
-
-/* Halaman Kegiatan */
-.kegiatan-grid .card img {
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
     width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 5px 5px 0 0;
-    margin: -20px -20px 15px -20px;
+    max-width: 450px;
+}
+.info-card h3 { margin-top: 0; }
+.info-card ul { padding-left: 20px; }
+
+/* === ======================================== === */
+/* === SECTION PROGRAM UNGGULAN (KARTU MODERN) === */
+/* === ======================================== === */
+#program-unggulan {
+    background-color: #2c3e50; /* Warna latar gelap agar kartu putih menonjol */
 }
 
-/* Halaman Acara */
-.acara-item {
-    background: #fff;
-    padding: 20px;
-    border-left: 5px solid #007bff;
-    margin-bottom: 20px;
-}
-.acara-item h3 {
-    margin-top: 0;
-}
-hr {
-    margin: 40px 0;
-    border: 1px solid #eee;
-}
-
-
-/* Footer */
-footer {
-    background: #333;
-    color: #fff;
+#program-unggulan h2 {
     text-align: center;
-    padding: 20px 0;
+    margin-bottom: 50px;
+    font-size: 32px;
+    color: #ffffff; /* Judul warna putih */
 }
 
-/* Responsif untuk Mobile */
-@media (max-width: 768px) {
-    header .container {
-        flex-direction: column;
-    }
-    header nav ul li {
-        display: block;
-        margin: 10px 0;
-        text-align: center;
-    }
-    .hero h1 {
-        font-size: 2rem;
-    }
-    .struktur-org li {
-        display: block; /* Membuat bagan menjadi vertikal di mobile */
-    }
-}
-
- /* -- Pengaturan Dasar -- */
-body {
-    background-color: #2c3e50; /* Warna latar belakang gelap seperti di gambar */
-    font-family: 'Poppins', sans-serif;
+.showcase-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    margin: 0;
-    padding: 40px;
+    flex-wrap: wrap;
+    gap: 40px;
 }
 
-/* -- Kontainer untuk Semua Kartu -- */
-.card-container {
-    display: flex;
-    justify-content: center;
-    align-items: center; /* Membuat kartu sejajar di tengah secara vertikal */
-    flex-wrap: wrap; /* Agar responsif di layar kecil */
-    gap: 40px; /* Jarak antar kartu */
-}
-
-/* -- Gaya Umum untuk Semua Kartu -- */
-.card {
+/* Saya ganti namanya dari .card menjadi .showcase-card */
+.showcase-card {
     background-color: #ffffff;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     width: 300px;
-    overflow: visible; /* Diubah agar bayangan gambar melayang terlihat */
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
-/* -- Efek Hover Umum -- */
-.card:hover {
+.showcase-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
 }
 
-/* -- Gaya untuk Kartu Samping (1 & 3) -- */
-.card .card-img-top {
+.showcase-card .card-img-top {
     width: calc(100% - 40px);
     margin: 20px 20px 0 20px;
     border-radius: 15px;
     object-fit: cover;
 }
+.showcase-card .card-body { padding: 20px 30px 30px 30px; }
+.showcase-card .card-body h3 { margin: 0; font-size: 22px; color: #333; }
 
-.card .card-body {
-    padding: 20px 30px 30px 30px;
-}
-
-.card .card-body h3 {
-    margin: 0;
-    font-size: 22px;
-    color: #333;
-}
-
-
-/* -- ============================================= -- */
-/* -- GAYA KHUSUS UNTUK KARTU TENGAH (EFEK MELAYANG) -- */
-/* -- ============================================= -- */
-
-.card-center {
+/* Gaya khusus untuk kartu tengah (melayang) */
+.showcase-card-center {
     width: 320px;
-    padding-top: 80px; /* Beri ruang di atas untuk gambar melayang */
-    /* PENTING: Induk harus 'relative' agar anak 'absolute' bisa diatur posisinya */
+    padding-top: 80px;
     position: relative; 
 }
 
 .floating-img-wrapper {
-    width: 200px; /* Ukuran gambar melayang */
+    width: 200px;
     height: 120px;
     border-radius: 15px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-    
-    /* INI TRIK UTAMANYA */
     position: absolute;
-    top: -60px; /* Tarik gambar ke atas keluar dari kartu */
-    left: 50%; /* Posisikan 50% dari kiri kartu */
-    transform: translateX(-50%); /* Geser kembali 50% dari lebar gambar itu sendiri untuk membuatnya pas di tengah */
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%);
     transition: transform 0.3s ease;
 }
-
 .floating-img-wrapper img {
     width: 100%;
     height: 100%;
@@ -304,22 +195,9 @@ body {
     object-fit: cover;
 }
 
-.card-center .card-body-center {
-    padding: 20px 30px 30px 30px;
-}
-
-.card-center h2 {
-    margin: 0 0 10px 0;
-    font-size: 24px;
-    color: #333;
-}
-
-.card-center p {
-    font-size: 14px;
-    color: #666;
-    line-height: 1.6;
-    margin-bottom: 25px;
-}
+.showcase-card-center .card-body-center { padding: 20px 30px 30px 30px; }
+.showcase-card-center h2 { margin: 0 0 10px 0; font-size: 24px; color: #333; }
+.showcase-card-center p { font-size: 14px; color: #666; line-height: 1.6; margin-bottom: 25px; }
 
 .btn-read-more {
     background-color: #252525;
@@ -330,14 +208,20 @@ body {
     font-weight: 600;
     transition: background-color 0.2s ease, transform 0.2s ease;
 }
-
 .btn-read-more:hover {
     background-color: #000000;
     transform: scale(1.05);
 }
 
-/* Efek hover tambahan untuk gambar melayang */
-.card-center:hover .floating-img-wrapper {
+.showcase-card-center:hover .floating-img-wrapper {
     transform: translateX(-50%) translateY(-10px) scale(1.05);
 }
 
+/* === FOOTER === */
+footer {
+    background-color: #2c3e50;
+    color: #ccc;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: -1px; /* Mencegah celah kecil */
+}

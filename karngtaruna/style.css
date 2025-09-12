@@ -14,6 +14,58 @@ body {
     padding: 0 20px;
 }
 
+/* === CARD 3: EFEK REVEAL CONTENT === */
+.card-reveal {
+    position: relative; /* Diperlukan agar posisi 'absolute' pada anak berfungsi */
+}
+
+.card-reveal img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease-out; /* Transisi untuk efek zoom gambar */
+}
+
+.card-reveal-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0));
+    color: white;
+    padding: 60px 20px 20px 20px;
+    box-sizing: border-box;
+    /* Posisikan di bawah (tersembunyi) pada awalnya */
+    transform: translateY(70%);
+    transition: transform 0.4s ease-out; /* Transisi untuk efek slide */
+}
+
+.card-reveal-content h3 {
+    margin: 0 0 10px 0;
+}
+
+.card-reveal-content p {
+    margin: 0;
+    font-size: 14px;
+    opacity: 0; /* Sembunyikan paragraf pada awalnya */
+    transition: opacity 0.3s ease-out 0.2s; /* Muncul setelah slide selesai */
+}
+
+/* INI BAGIAN ANIMASINYA */
+.card-reveal:hover .card-reveal-content {
+    /* Pindahkan konten ke posisi terlihat */
+    transform: translateY(0);
+}
+
+.card-reveal:hover p {
+    opacity: 1; /* Tampilkan paragraf */
+}
+
+/* Efek bonus: zoom gambar saat hover */
+.card-reveal:hover img {
+    transform: scale(1.1);
+}
+
 /* Header & Navigasi */
 header {
     background: #ffffff;
@@ -212,3 +264,4 @@ footer {
         display: block; /* Membuat bagan menjadi vertikal di mobile */
     }
 }
+

@@ -1,9 +1,17 @@
-/* === GAYA UMUM & BAGIAN ATAS === */
+/* ======================================= */
+/* ===         PENGATURAN DASAR        === */
+/* ======================================= */
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
-    color: #333;
-    background-color: #f4f7f6;
+    color: #333; /* Warna teks utama */
+    background-color: #f8f9fa; /* Warna latar belakang halaman yang sedikit abu-abu */
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    color: #2c3e50; /* Warna lebih gelap untuk judul */
+    font-weight: 700;
 }
 
 .container {
@@ -12,13 +20,28 @@ body {
     margin: 0 auto;
 }
 
+section {
+    padding: 80px 0;
+}
+
+section h2 {
+    text-align: center;
+    font-size: 36px;
+    margin-top: 0;
+    margin-bottom: 50px;
+}
+
+/* ======================================= */
+/* ===     HEADER & NAVIGASI (MENU)    === */
+/* ======================================= */
 header {
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
     padding: 15px 0;
     position: sticky;
     top: 0;
     z-index: 1000;
+    width: 100%;
 }
 
 header .container {
@@ -39,104 +62,108 @@ nav ul {
     margin: 0;
     padding: 0;
     display: flex;
-    gap: 25px;
+    gap: 30px; /* Jarak antar menu */
 }
 
 nav a {
     text-decoration: none;
     color: #555;
     font-weight: 600;
-    transition: color 0.2s;
+    font-size: 16px;
+    transition: color 0.3s ease;
 }
 
-nav a:hover, nav a.active {
-    color: #3498db;
+nav a:hover,
+nav a.active {
+    color: #3498db; /* Warna biru saat aktif atau di-hover */
 }
 
-main {
-    padding-top: 20px;
-}
 
-section {
-    padding: 60px 0;
-}
-
-/* === HERO SECTION === */
+/* ======================================= */
+/* ===          BAGIAN HERO            === */
+/* ======================================= */
 .hero {
-    background-color: #3498db;
+    background: linear-gradient(to right, #3498db, #2980b9); /* Gradasi biru */
     color: white;
     text-align: center;
-    padding: 80px 0;
+    padding: 100px 0;
 }
 
 .hero h1 {
-    font-size: 42px;
-    margin-bottom: 10px;
+    color: white;
+    font-size: 48px;
+    margin-bottom: 15px;
 }
 
 .hero p {
-    font-size: 18px;
+    font-size: 20px;
     margin-bottom: 30px;
+    opacity: 0.9;
 }
 
 .hero .btn {
     background-color: white;
     color: #3498db;
-    padding: 12px 25px;
-    border-radius: 5px;
+    padding: 15px 30px;
+    border-radius: 50px; /* Tombol berbentuk kapsul */
     text-decoration: none;
-    font-weight: 600;
-    transition: background-color 0.2s, color 0.2s;
+    font-weight: 700;
+    transition: background-color 0.3s, transform 0.3s;
 }
+
 .hero .btn:hover {
     background-color: #f1f1f1;
+    transform: translateY(-3px); /* Efek terangkat saat disentuh */
 }
 
-/* === TENTANG KAMI & VISI MISI SECTION === */
-#tentang-kami h2, #visi-misi h2 {
-    text-align: center;
-    margin-bottom: 40px;
-    font-size: 32px;
-    color: #2c3e50;
-}
-
+/* ======================================= */
+/* ===      TENTANG KAMI & VISI MISI   === */
+/* ======================================= */
 #tentang-kami p {
     text-align: center;
+    font-size: 18px;
     max-width: 800px;
     margin: 0 auto;
-    line-height: 1.7;
+    color: #555;
+}
+
+#visi-misi {
+    background-color: #ffffff; /* Latar belakang putih untuk kontras */
 }
 
 .visi-misi-grid {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 kolom sejajar */
+    gap: 40px;
 }
 
-.info-card { /* Class untuk Visi & Misi */
-    background: #fff;
-    padding: 25px;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-    width: 100%;
-    max-width: 450px;
+.info-card {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 10px;
+    border-left: 5px solid #3498db; /* Aksen garis biru */
 }
-.info-card h3 { margin-top: 0; }
-.info-card ul { padding-left: 20px; }
 
-/* === ======================================== === */
-/* === SECTION PROGRAM UNGGULAN (KARTU MODERN) === */
-/* === ======================================== === */
+.info-card h3 {
+    margin-top: 0;
+    font-size: 24px;
+}
+
+.info-card ul {
+    padding-left: 20px;
+    list-style: '✓  '; /* Custom bullet point */
+    color: #555;
+}
+
+/* ======================================= */
+/* ===        PROGRAM UNGGULAN         === */
+/* ======================================= */
 #program-unggulan {
-    background-color: #2c3e50; /* Warna latar gelap agar kartu putih menonjol */
+    background-color: #2c3e50;
 }
 
 #program-unggulan h2 {
-    text-align: center;
-    margin-bottom: 50px;
-    font-size: 32px;
-    color: #ffffff; /* Judul warna putih */
+    color: #ffffff;
 }
 
 .showcase-container {
@@ -147,7 +174,6 @@ section {
     gap: 40px;
 }
 
-/* Saya ganti namanya dari .card menjadi .showcase-card */
 .showcase-card {
     background-color: #ffffff;
     border-radius: 20px;
@@ -156,6 +182,7 @@ section {
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 .showcase-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
@@ -166,20 +193,28 @@ section {
     margin: 20px 20px 0 20px;
     border-radius: 15px;
     object-fit: cover;
+    aspect-ratio: 4/3; /* Menjaga rasio gambar */
 }
-.showcase-card .card-body { padding: 20px 30px 30px 30px; }
-.showcase-card .card-body h3 { margin: 0; font-size: 22px; color: #333; }
 
-/* Gaya khusus untuk kartu tengah (melayang) */
+.showcase-card .card-body {
+    padding: 20px 30px 30px 30px;
+}
+
+.showcase-card .card-body h3 {
+    margin: 0;
+    font-size: 22px;
+}
+
+/* Kartu Tengah yang Melayang */
 .showcase-card-center {
     width: 320px;
     padding-top: 80px;
-    position: relative; 
+    position: relative;
 }
 
 .floating-img-wrapper {
     width: 200px;
-    height: 120px;
+    height: 130px;
     border-radius: 15px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
     position: absolute;
@@ -188,6 +223,7 @@ section {
     transform: translateX(-50%);
     transition: transform 0.3s ease;
 }
+
 .floating-img-wrapper img {
     width: 100%;
     height: 100%;
@@ -195,9 +231,19 @@ section {
     object-fit: cover;
 }
 
-.showcase-card-center .card-body-center { padding: 20px 30px 30px 30px; }
-.showcase-card-center h2 { margin: 0 0 10px 0; font-size: 24px; color: #333; }
-.showcase-card-center p { font-size: 14px; color: #666; line-height: 1.6; margin-bottom: 25px; }
+.showcase-card-center .card-body-center {
+    padding: 20px 30px 30px 30px;
+}
+
+.showcase-card-center h2 {
+    font-size: 24px;
+}
+
+.showcase-card-center p {
+    font-size: 15px;
+    color: #666;
+    margin-bottom: 25px;
+}
 
 .btn-read-more {
     background-color: #252525;
@@ -208,6 +254,7 @@ section {
     font-weight: 600;
     transition: background-color 0.2s ease, transform 0.2s ease;
 }
+
 .btn-read-more:hover {
     background-color: #000000;
     transform: scale(1.05);
@@ -217,11 +264,44 @@ section {
     transform: translateX(-50%) translateY(-10px) scale(1.05);
 }
 
-/* === FOOTER === */
+
+/* ======================================= */
+/* ===            FOOTER               === */
+/* ======================================= */
 footer {
     background-color: #2c3e50;
     color: #ccc;
     text-align: center;
-    padding: 20px 0;
-    margin-top: -1px; /* Mencegah celah kecil */
+    padding: 25px 0;
+}
+
+
+/* ======================================= */
+/* ===      ATURAN RESPONSIVE         === */
+/* ======================================= */
+@media (max-width: 992px) {
+    .visi-misi-grid {
+        grid-template-columns: 1fr; /* Ubah jadi 1 kolom di tablet */
+    }
+}
+
+@media (max-width: 768px) {
+    /* Aturan untuk menu hamburger akan ditambahkan di sini jika diperlukan */
+    /* Jika Anda mengikuti perbaikan saya sebelumnya, CSS menu mobile sudah ada */
+    
+    .hero h1 {
+        font-size: 36px;
+    }
+    
+    .hero p {
+        font-size: 18px;
+    }
+
+    section {
+        padding: 60px 0;
+    }
+    
+    section h2 {
+        font-size: 30px;
+    }
 }

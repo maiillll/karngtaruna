@@ -76,7 +76,7 @@ nav a {
 
 nav a:hover,
 nav a.active {
-    color: #3498db; /* Warna biru saat aktif atau di-hover */
+    color: #32CD32; /* Warna biru saat aktif atau di-hover */
 }
 
 /* ======================================= */
@@ -376,5 +376,6 @@ footer {
         overflow-x: hidden;
     }
 }
+
 
 

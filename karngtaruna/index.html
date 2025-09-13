@@ -63,40 +63,74 @@
         </section>
 
         <section id="program-unggulan">
-            <div class="container">
-                <h2>Program Unggulan</h2>
-                <div class="showcase-container">
+    <div class="container">
+        <h2>Program Unggulan</h2>
 
-                    <div class="showcase-card">
-                        <img class="card-img-top" src="https://picsum.photos/id/1018/400/300" alt="Kegiatan Sosial">
-                        <div class="card-body">
-                            <h3>Bakti Sosial</h3>
-                        </div>
+        <div class="carousel-wrapper">
+            <div class="carousel-track">
+
+                <div class="showcase-card" 
+                     data-image="https://picsum.photos/id/1018/400/300" 
+                     data-title="Bakti Sosial" 
+                     data-description="Membantu sesama dan mempererat tali persaudaraan melalui kegiatan sosial rutin di lingkungan masyarakat.">
+                    <img class="card-img-top" src="https://picsum.photos/id/1018/400/300" alt="Kegiatan Sosial">
+                    <div class="card-body">
+                        <h3>Bakti Sosial</h3>
                     </div>
-
-                    <div class="showcase-card showcase-card-center">
-                        <div class="floating-img-wrapper">
-                            <img src="https://picsum.photos/id/1043/400/300" alt="Pelatihan Skill">
-                        </div>
-                        <div class="card-body-center">
-                            <h2>Pelatihan Wirausaha</h2>
-                            <p>
-                                Meningkatkan kemandirian pemuda melalui pelatihan skill dan kewirausahaan modern.
-                            </p>
-                            <a href="#" class="btn-read-more">Lihat Detail</a>
-                        </div>
-                    </div>
-
-                    <div class="showcase-card">
-                        <img class="card-img-top" src="https://picsum.photos/id/10/400/300" alt="Acara Olahraga">
-                        <div class="card-body">
-                            <h3>Turnamen Futsal</h3>
-                        </div>
-                    </div>
-
                 </div>
+
+                <div class="showcase-card" 
+                     data-image="https://picsum.photos/id/1043/400/300" 
+                     data-title="Pelatihan Wirausaha" 
+                     data-description="Meningkatkan kemandirian pemuda melalui pelatihan skill dan kewirausahaan modern untuk menciptakan peluang baru.">
+                    <img class="card-img-top" src="https://picsum.photos/id/1043/400/300" alt="Pelatihan Skill">
+                    <div class="card-body">
+                        <h3>Pelatihan Wirausaha</h3>
+                    </div>
+                </div>
+
+                <div class="showcase-card" 
+                     data-image="https://picsum.photos/id/10/400/300" 
+                     data-title="Turnamen Futsal" 
+                     data-description="Menjunjung tinggi sportivitas dan menyalurkan bakat pemuda di bidang olahraga melalui kompetisi tahunan.">
+                    <img class="card-img-top" src="https://picsum.photos/id/10/400/300" alt="Acara Olahraga">
+                    <div class="card-body">
+                        <h3>Turnamen Futsal</h3>
+                    </div>
+                </div>
+                
+                <div class="showcase-card" 
+                     data-image="https://picsum.photos/id/1025/400/300" 
+                     data-title="Pentas Seni & Budaya" 
+                     data-description="Melestarikan budaya lokal dan memberikan panggung bagi para pemuda untuk menunjukkan kreativitas mereka di bidang seni.">
+                    <img class="card-img-top" src="https://picsum.photos/id/1025/400/300" alt="Pentas Seni">
+                    <div class="card-body">
+                        <h3>Pentas Seni</h3>
+                    </div>
+                </div>
+
             </div>
-        </section>
+            
+            <button class="carousel-btn prev" id="prevBtn">&lt;</button>
+            <button class="carousel-btn next" id="nextBtn">&gt;</button>
+        </div>
+    </div>
+</section>
+
+<div class="modal-overlay" id="detailModal">
+    <div class="modal-content">
+        <button class="modal-close" id="closeModal">&times;</button>
+        <div class="floating-img-wrapper" id="modalImageWrapper">
+            <img src="" alt="Detail Program" id="modalImage">
+        </div>
+        <div class="card-body-center">
+            <h2 id="modalTitle"></h2>
+            <p id="modalDescription"></p>
+            <a href="#" class="btn-read-more">Lihat Dokumentasi</a>
+        </div>
+    </div>
+</div>
+
         
     </main>
 
@@ -105,6 +139,89 @@
             <p>&copy; 2025 Karang Taruna Tunas Harapan. Dibuat dengan ❤️ untuk pemuda.</p>
         </div>
     </footer>
+        
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // --- LOGIKA CAROUSEL ---
+            const track = document.querySelector('.carousel-track');
+            const cards = Array.from(track.children);
+            const nextButton = document.getElementById('nextBtn');
+            const prevButton = document.getElementById('prevBtn');
+            
+            // Cek jika elemen ada sebelum melanjutkan
+            if (track && cards.length > 0 && nextButton && prevButton) {
+                const cardWidth = cards[0].getBoundingClientRect().width + 20; // 20 adalah gap
+                let currentIndex = 0;
+
+                function moveToCard(index) {
+                    if (index < 0) index = 0;
+                    if (index >= cards.length) index = cards.length - 1;
+                    
+                    track.style.transform = 'translateX(-' + index * cardWidth + 'px)';
+                    currentIndex = index;
+                }
+
+                nextButton.addEventListener('click', () => {
+                    // Cek jika masih ada ruang untuk scroll
+                    const remainingScroll = track.scrollWidth - track.clientWidth - (currentIndex * cardWidth);
+                    if (remainingScroll > 1) { // Beri toleransi 1px
+                         moveToCard(currentIndex + 1);
+                    }
+                });
+
+                prevButton.addEventListener('click', () => {
+                    moveToCard(currentIndex - 1);
+                });
+            }
+
+
+            // --- LOGIKA MODAL ---
+            const modalOverlay = document.getElementById('detailModal');
+            const modalImage = document.getElementById('modalImage');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalDescription = document.getElementById('modalDescription');
+            const closeModal = document.getElementById('closeModal');
+
+            // Cek jika elemen modal ada
+            if(modalOverlay) {
+                cards.forEach(card => {
+                    card.addEventListener('click', () => {
+                        // Ambil data dari atribut data-* kartu yang diklik
+                        const image = card.dataset.image;
+                        const title = card.dataset.title;
+                        const description = card.dataset.description;
+
+                        // Masukkan data ke dalam elemen modal
+                        modalImage.src = image;
+                        modalTitle.textContent = title;
+                        modalDescription.textContent = description;
+
+                        // Tampilkan modal
+                        modalOverlay.classList.add('active');
+                    });
+                });
+
+                function hideModal() {
+                    modalOverlay.classList.remove('active');
+                }
+
+                closeModal.addEventListener('click', hideModal);
+                
+                // Tutup modal jika klik di luar area konten
+                modalOverlay.addEventListener('click', (event) => {
+                    if (event.target === modalOverlay) {
+                        hideModal();
+                    }
+                });
+            }
+        });
+    </script>
+    
+
+
 
 </body>
 </html>
+

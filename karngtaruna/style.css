@@ -376,7 +376,7 @@ footer {
         overflow-x: hidden;
     }
 }
-/* ======================================= */
+  /* ======================================= */
 /* === HALAMAN STRUKTUR ORGANISASI     === */
 /* ======================================= */
 
@@ -399,45 +399,51 @@ footer {
 /* --- Bagan Organisasi --- */
 #bagan-organisasi {
     padding: 80px 0;
+    background-color: #f8f9fa;
 }
 
 .org-chart {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 50px; /* Jarak vertikal antar level */
 }
 
 .level {
     display: flex;
     justify-content: center;
-    gap: 30px; /* Jarak horizontal antar kartu */
-    flex-wrap: wrap; /* Agar responsif di layar kecil */
     position: relative;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 25px 0;
 }
 
 /* --- Garis Penghubung --- */
+.level:not(:first-child) {
+    margin-top: 50px; /* Jarak antar level */
+}
+
 .level::before {
     content: '';
     position: absolute;
-    top: -25px; /* Setengah dari 'gap' di .org-chart */
+    top: -25px;
     width: 2px;
     height: 25px;
     background-color: #ced4da;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.level-1 {
+    padding-top: 0;
 }
 
 .level-1::before {
     display: none; /* Hilangkan garis di atas Ketua */
 }
 
-.level-2::before, .level-3::before {
-    left: 50%;
-    transform: translateX(-50%);
-}
-
 .member-card {
     position: relative;
-    padding-top: 15px; /* Beri ruang untuk garis dari atas */
+    padding-top: 25px;
 }
 
 .member-card::before {
@@ -447,39 +453,12 @@ footer {
     left: 50%;
     transform: translateX(-50%);
     width: 2px;
-    height: 15px;
+    height: 25px;
     background-color: #ced4da;
 }
 
 .level-1 .member-card::before {
     display: none;
-}
-
-.member-card::after {
-    content: '';
-    position: absolute;
-    top: 15px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: #ced4da;
-    display: none; /* Akan diaktifkan untuk level 2 */
-}
-
-.level-2 > .member-card:first-child::after {
-    left: 50%;
-    width: 50%;
-}
-
-.level-2 > .member-card:last-child::after {
-    right: 50%;
-    width: 50%;
-    left: auto;
-}
-
-.level-2 > .member-card:not(:first-child):not(:last-child)::after,
-.level-2::after {
-    display: block;
 }
 
 /* --- Kartu Anggota --- */
@@ -533,16 +512,14 @@ footer {
 }
 
 /* --- Aturan Responsive untuk Mobile --- */
-@media (max-width: 768px) {
-    .level-2, .level-3 {
+@media (max-width: 992px) {
+    .level {
         flex-direction: column;
         align-items: center;
+        gap: 20px;
     }
-    .member-card::after, .level::after {
-        display: none !important; /* Sembunyikan garis horizontal di mobile */
+    .level:not(:first-child) {
+        margin-top: 20px;
     }
 }
-
-
-
-
+  

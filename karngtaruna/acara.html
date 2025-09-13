@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acara - Karang Taruna</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css"> <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -27,59 +25,82 @@
     <main>
         <section class="page-header">
             <div class="container">
-                <h1>Linimasa Acara</h1>
-                <p>Jelajahi jejak langkah dan agenda mendatang Karang Taruna Tunas Harapan.</p>
+                <h1>Kalender Acara</h1>
+                <p>Daftar acara yang akan datang dan dokumentasi acara yang telah berlalu.</p>
             </div>
         </section>
 
-        <section id="timeline-acara">
+        <section id="daftar-acara">
             <div class="container">
-                <div class="timeline">
-                    
-                    <div class="timeline-header">
-                        <h2><i class="fa-solid fa-calendar-day"></i> Akan Datang</h2>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-date">25 SEP 2025</div>
-                        <div class="timeline-content">
-                            <img src="https://picsum.photos/id/30/800/400" alt="Pengajian Akbar">
-                            <h3>Pengajian & Malam Keakraban</h3>
-                            <p class="location"><i class="fa-solid fa-map-marker-alt"></i> Aula Desa</p>
-                            <p>Acara rohani bulanan untuk mempererat silaturahmi antar anggota dan masyarakat sekitar.</p>
-                            <a href="#" class="btn-timeline">Ingatkan Saya</a>
+                
+                <h2>Acara Akan Datang</h2>
+                <div class="carousel-wrapper">
+                    <div class="carousel-track">
+                        
+                        <div class="event-card">
+                            <div class="event-image">
+                                <img src="https://picsum.photos/id/11/400/400" alt="HUT Kemerdekaan RI">
+                            </div>
+                            <div class="event-details">
+                                <h3>Peringatan HUT Kemerdekaan RI</h3>
+                                <p class="info"><strong>Tanggal:</strong> 17 Agustus 2025</p>
+                                <p class="info"><strong>Lokasi:</strong> Lapangan Serbaguna</p>
+                                <p>Rangkaian acara perlombaan dan malam puncak kesenian untuk merayakan hari kemerdekaan.</p>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-date">17 AGU 2025</div>
-                        <div class="timeline-content">
-                            <img src="https://picsum.photos/id/11/800/400" alt="HUT Kemerdekaan RI">
-                            <h3>Peringatan HUT Kemerdekaan RI</h3>
-                            <p class="location"><i class="fa-solid fa-map-marker-alt"></i> Lapangan Serbaguna</p>
-                            <p>Rangkaian acara perlombaan dan malam puncak kesenian untuk merayakan hari kemerdekaan.</p>
+                        <div class="event-card">
+                            <div class="event-image">
+                                <img src="https://picsum.photos/id/30/400/400" alt="Pengajian Akbar">
+                            </div>
+                            <div class="event-details">
+                                <h3>Pengajian & Malam Keakraban</h3>
+                                <p class="info"><strong>Tanggal:</strong> 25 September 2025</p>
+                                <p class="info"><strong>Lokasi:</strong> Aula Desa</p>
+                                <p>Acara rohani untuk mempererat silaturahmi antar anggota dan masyarakat.</p>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="timeline-header">
-                         <h2><i class="fa-solid fa-box-archive"></i> Arsip Acara</h2>
                     </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-date">15 DES 2024</div>
-                        <div class="timeline-content">
-                            <img src="https://picsum.photos/id/1025/800/400" alt="Pentas Seni dan Budaya">
-                            <h3>Pentas Seni dan Budaya 2024</h3>
-                            <p class="location"><i class="fa-solid fa-map-marker-alt"></i> Balai Warga</p>
-                            <p>Acara tahunan untuk menampilkan bakat-bakat seni dari pemuda-pemudi di lingkungan kami.</p>
-                            <a href="#" class="btn-timeline">Lihat Galeri</a>
-                        </div>
-                    </div>
-
+                    <button class="carousel-btn prev">&lt;</button>
+                    <button class="carousel-btn next">&gt;</button>
                 </div>
+
+                <hr class="section-divider">
+
+                <h2>Arsip Acara</h2>
+                <div class="carousel-wrapper">
+                    <div class="carousel-track">
+                        
+                         <div class="event-card">
+                            <div class="event-image">
+                                <img src="https://picsum.photos/id/1025/400/400" alt="Pentas Seni dan Budaya">
+                            </div>
+                            <div class="event-details">
+                                <h3>Pentas Seni dan Budaya 2024</h3>
+                                <p class="info"><strong>Tanggal:</strong> 15 Desember 2024</p>
+                                <p class="info"><strong>Lokasi:</strong> Balai Warga</p>
+                                <p>Acara tahunan untuk menampilkan bakat-bakat seni dari pemuda-pemudi di lingkungan kami.</p>
+                            </div>
+                        </div>
+
+                        <div class="event-card">
+                            <div class="event-image">
+                                <img src="https://picsum.photos/id/1018/400/400" alt="Bakti Sosial">
+                            </div>
+                            <div class="event-details">
+                                <h3>Bakti Sosial & Donor Darah</h3>
+                                <p class="info"><strong>Tanggal:</strong> 20 Juli 2024</p>
+                                <p class="info"><strong>Lokasi:</strong> Kantor Kelurahan</p>
+                                <p>Kegiatan sosial membantu sesama dan bekerja sama dengan PMI untuk aksi donor darah.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <button class="carousel-btn prev">&lt;</button>
+                    <button class="carousel-btn next">&gt;</button>
+                </div>
+
             </div>
         </section>
     </main>
@@ -89,6 +110,8 @@
             <p>&copy; 2025 Karang Taruna Tunas Harapan. Dibuat dengan ❤️ untuk pemuda.</p>
         </div>
     </footer>
+
+    <script src="script.js"></script>
 
 </body>
 </html>

@@ -1,3 +1,126 @@
+/* GANTI SEMUA BLOK CSS UNTUK HEADER & NAV DENGAN KODE BARU INI */
+
+/* ======================================= */
+/* ===     HEADER & NAVIGASI (MENU)    === */
+/* ======================================= */
+header {
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 24px;
+    text-decoration: none;
+    color: #2c3e50;
+    z-index: 10; /* Agar logo tetap di atas saat menu mobile aktif */
+}
+
+/* --- Tampilan Menu Desktop --- */
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 30px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 600;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: #3498db;
+}
+
+/* --- Tombol Hamburger --- */
+.menu-toggle {
+    display: none; /* Sembunyikan di desktop */
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.menu-toggle .bar {
+    height: 3px;
+    width: 100%;
+    background-color: #333;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+
+/* --- Tampilan Mobile (Layar di bawah 768px) --- */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex; /* Tampilkan tombol hamburger */
+    }
+
+    .navbar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh; /* Menu mengisi seluruh layar */
+        background-color: white;
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        /* Sembunyikan menu mobile (efek geser dari kanan) */
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .navbar.active {
+        transform: translateX(0); /* Tampilkan menu saat aktif */
+    }
+
+    .navbar ul {
+        flex-direction: column; /* Ubah menu jadi vertikal */
+        text-align: center;
+        gap: 20px;
+    }
+    
+    .navbar a {
+        font-size: 24px; /* Perbesar font menu di mobile */
+    }
+
+    /* Animasi tombol hamburger menjadi 'X' */
+    .menu-toggle.active .bar:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 6px);
+    }
+    .menu-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-toggle.active .bar:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -6px);
+    }
+}
+
+
+
+
 /* ======================================= */
 /* ===         PENGATURAN DASAR        === */
 /* ======================================= */
@@ -5,7 +128,7 @@ body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     color: #333; /* Warna teks utama */
-    background-color: #f8f9fa; /* Warna latar belakang halaman */
+    background-color: #f8f9fa; /* Warna latar belakang halaman yang sedikit abu-abu */
     line-height: 1.6;
 }
 
@@ -33,7 +156,7 @@ section h2 {
 }
 
 /* ======================================= */
-/* ===  HEADER & NAVIGASI (RESPONSIVE) === */
+/* ===     HEADER & NAVIGASI (MENU)    === */
 /* ======================================= */
 header {
     background-color: #ffffff;
@@ -56,18 +179,17 @@ header .container {
     font-size: 24px;
     text-decoration: none;
     color: #2c3e50;
-    z-index: 10;
 }
 
-.navbar ul {
+nav ul {
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
-    gap: 30px;
+    gap: 30px; /* Jarak antar menu */
 }
 
-.navbar a {
+nav a {
     text-decoration: none;
     color: #555;
     font-weight: 600;
@@ -75,34 +197,16 @@ header .container {
     transition: color 0.3s ease;
 }
 
-.navbar a:hover,
-.navbar a.active {
-    color: #3498db; /* Warna biru konsisten */
-}
-
-.menu-toggle {
-    display: none;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 30px;
-    height: 21px;
-    cursor: pointer;
-    z-index: 10;
-}
-
-.menu-toggle .bar {
-    height: 3px;
-    width: 100%;
-    background-color: #333;
-    border-radius: 10px;
-    transition: all 0.3s ease-in-out;
+nav a:hover,
+nav a.active {
+    color: #32CD32; /* Warna biru saat aktif atau di-hover */
 }
 
 /* ======================================= */
 /* ===          BAGIAN HERO            === */
 /* ======================================= */
 .hero {
-    background: linear-gradient(to right, #3498db, #2980b9);
+    background: linear-gradient(to right, #3498db, #2980b9); /* Gradasi biru */
     color: white;
     text-align: center;
     padding: 100px 0;
@@ -124,7 +228,7 @@ header .container {
     background-color: white;
     color: #3498db;
     padding: 15px 30px;
-    border-radius: 50px;
+    border-radius: 50px; /* Tombol berbentuk kapsul */
     text-decoration: none;
     font-weight: 700;
     transition: background-color 0.3s, transform 0.3s;
@@ -132,7 +236,7 @@ header .container {
 
 .hero .btn:hover {
     background-color: #f1f1f1;
-    transform: translateY(-3px);
+    transform: translateY(-3px); /* Efek terangkat saat disentuh */
 }
 
 /* ======================================= */
@@ -147,12 +251,12 @@ header .container {
 }
 
 #visi-misi {
-    background-color: #ffffff;
+    background-color: #ffffff; /* Latar belakang putih untuk kontras */
 }
 
 .visi-misi-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr; /* 2 kolom sejajar */
     gap: 40px;
 }
 
@@ -160,7 +264,7 @@ header .container {
     background: #f8f9fa;
     padding: 30px;
     border-radius: 10px;
-    border-left: 5px solid #3498db;
+    border-left: 5px solid #3498db; /* Aksen garis biru */
 }
 
 .info-card h3 {
@@ -170,24 +274,21 @@ header .container {
 
 .info-card ul {
     padding-left: 20px;
-    list-style: '✓  ';
+    list-style: '✓  '; /* Custom bullet point */
     color: #555;
 }
 
 /* ======================================= */
-/* === PROGRAM UNGGULAN (CAROUSEL) & MODAL === */
+/* ===    PROGRAM UNGGULAN (CAROUSEL)    === */
 /* ======================================= */
 #program-unggulan {
     background-color: #2c3e50;
 }
 
-#program-unggulan h2 {
-    color: #ffffff;
-}
-
 .carousel-wrapper {
     position: relative;
     overflow: hidden;
+    /* Padding dihilangkan dari sini agar 'jendela' tetap lebar */
 }
 
 .carousel-track {
@@ -195,8 +296,10 @@ header .container {
     gap: 20px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
+    /* Padding ditambahkan di sini untuk memberi ruang di awal dan akhir scroll */
     padding: 0 25px; 
     padding-bottom: 20px;
+    /* Properti untuk menyembunyikan scrollbar */
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
@@ -205,14 +308,14 @@ header .container {
 }
 
 .showcase-card {
-    flex: 0 0 300px;
+    flex: 0 0 300px; /* Lebar setiap kartu, jangan mengecil/membesar */
     background-color: #ffffff;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     text-align: center;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
-    scroll-snap-align: start;
+    scroll-snap-align: start; /* Titik berhenti scroll */
 }
 
 .showcase-card:hover {
@@ -231,41 +334,78 @@ header .container {
     padding: 20px 30px 30px 30px;
 }
 
+/* Tombol Navigasi Carousel */
+
+/* GANTI SEMUA KODE CSS LAMA UNTUK .carousel-btn DENGAN BLOK BARU INI */
+
+/* ======================================= */
+/* ===    GAYA BARU TOMBOL CAROUSEL      === */
+/* ======================================= */
+
 .carousel-btn {
+    /* --- Posisi & Ukuran --- */
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     z-index: 10;
     width: 45px;
     height: 45px;
+
+    /* --- Desain Visual --- */
     background-color: #ffffff;
     border: none;
-    border-radius: 50%;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    color: #2c3e50;
+    border-radius: 50%; /* Membuat tombol menjadi bulat sempurna */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Bayangan halus untuk efek 3D */
+    color: #2c3e50; /* Warna ikon panah */
     cursor: pointer;
+
+    /* --- Tampilan Ikon di Dalam Tombol --- */
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 18px;
+
+    /* --- Efek Transisi Halus --- */
     transition: transform 0.2s ease, opacity 0.3s ease, background-color 0.2s ease;
+
+    /* --- Visibilitas (Sembunyikan Awalnya) --- */
     opacity: 0;
     pointer-events: none;
 }
 
+/* --- Memunculkan Tombol Saat Mouse Hover di Area Carousel --- */
 .carousel-wrapper:hover .carousel-btn {
     opacity: 1;
     pointer-events: auto;
 }
 
+/* --- Efek Hover pada Tombol Itu Sendiri --- */
 .carousel-btn:hover {
-    transform: translateY(-50%) scale(1.1);
+    transform: translateY(-50%) scale(1.1); /* Sedikit membesar */
     background-color: #f1f1f1;
 }
 
-.carousel-btn.prev { left: -22px; }
-.carousel-btn.next { right: -22px; }
+/* --- Posisi Spesifik untuk Tombol Kiri & Kanan --- */
+/* Menggunakan nilai negatif untuk meletakkan tombol DI LUAR area kartu */
+.carousel-btn.prev {
+    left: -22px; 
+}
 
+.carousel-btn.next {
+    right: -22px;
+}
+
+/* --- Penyesuaian untuk Tampilan Mobile --- */
+/* Di mobile, tombol lebih baik disembunyikan agar tidak mengganggu swipe */
+@media (max-width: 768px) {
+    .carousel-btn {
+        display: none;
+    }
+}
+
+/* ======================================= */
+/* ===          MODAL (POPUP)          === */
+/* ======================================= */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -353,18 +493,84 @@ header .container {
 }
 
 /* ======================================= */
+/* ===            FOOTER               === */
+/* ======================================= */
+footer {
+    background-color: #2c3e50;
+    color: #ccc;
+    text-align: center;
+    padding: 25px 0;
+}
+
+/* ======================================= */
+/* ===      ATURAN RESPONSIVE         === */
+/* ======================================= */
+
+/* Tampilan Tablet */
+@media (max-width: 992px) {
+    .visi-misi-grid {
+        grid-template-columns: 1fr; /* Ubah jadi 1 kolom di tablet */
+    }
+}
+
+/* Tampilan Mobile */
+@media (max-width: 768px) {
+    nav ul {
+        /* Sembunyikan menu desktop di mobile, perlu JS untuk hamburger */
+        display: none; 
+    }
+    
+    .hero h1 {
+        font-size: 36px;
+    }
+    
+    .hero p {
+        font-size: 18px;
+    }
+
+    section {
+        padding: 60px 0;
+    }
+    
+    section h2 {
+        font-size: 30px;
+    }
+}
+
+/* Tampilkan tombol carousel hanya di layar besar yg mendukung hover */
+@media (min-width: 1024px) {
+    .carousel-btn {
+        display: block;
+    }
+    .carousel-track {
+        /* Nonaktifkan scrollbar jika tombol ada */
+        overflow-x: hidden;
+    }
+}
+  /* ======================================= */
 /* === HALAMAN STRUKTUR ORGANISASI     === */
 /* ======================================= */
+
+/* --- Header Halaman --- */
 .page-header {
-    background-color: #e9ecef;
+    background-color: #e9ecef; /* Latar belakang abu-abu muda */
     padding: 40px 0;
     text-align: center;
 }
-.page-header h1 { margin: 0; font-size: 42px; }
-.page-header p { margin: 5px 0 0 0; font-size: 18px; color: #6c757d; }
+.page-header h1 {
+    margin: 0;
+    font-size: 42px;
+}
+.page-header p {
+    margin: 5px 0 0 0;
+    font-size: 18px;
+    color: #6c757d;
+}
 
+/* --- Bagan Organisasi --- */
 #bagan-organisasi {
     padding: 80px 0;
+    background-color: #f8f9fa;
 }
 
 .org-chart {
@@ -382,7 +588,11 @@ header .container {
     padding: 25px 0;
 }
 
-.level:not(:first-child) { margin-top: 50px; }
+/* --- Garis Penghubung --- */
+.level:not(:first-child) {
+    margin-top: 50px; /* Jarak antar level */
+}
+
 .level::before {
     content: '';
     position: absolute;
@@ -393,9 +603,20 @@ header .container {
     left: 50%;
     transform: translateX(-50%);
 }
-.level-1 { padding-top: 0; }
-.level-1::before { display: none; }
-.member-card { position: relative; padding-top: 25px; }
+
+.level-1 {
+    padding-top: 0;
+}
+
+.level-1::before {
+    display: none; /* Hilangkan garis di atas Ketua */
+}
+
+.member-card {
+    position: relative;
+    padding-top: 25px;
+}
+
 .member-card::before {
     content: '';
     position: absolute;
@@ -406,8 +627,12 @@ header .container {
     height: 25px;
     background-color: #ced4da;
 }
-.level-1 .member-card::before { display: none; }
 
+.level-1 .member-card::before {
+    display: none;
+}
+
+/* --- Kartu Anggota --- */
 .member-card {
     background-color: #fff;
     border-radius: 10px;
@@ -429,193 +654,123 @@ header .container {
 .member-card img {
     width: 100px;
     height: 100px;
-    border-radius: 50%;
+    border-radius: 50%; /* Membuat foto menjadi bulat */
     object-fit: cover;
     border: 4px solid #fff;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     margin-bottom: 15px;
 }
 
-.member-info .nama { margin: 0 0 5px 0; font-size: 18px; }
-.member-info .jabatan { display: block; font-size: 14px; color: #3498db; font-weight: 600; margin-bottom: 10px; }
-.member-info .deskripsi { font-size: 13px; color: #6c757d; line-height: 1.5; margin: 0; }
-
-/* ======================================= */
-/* ===      HALAMAN KEGIATAN (GRID)    === */
-/* ======================================= */
-#grid-kegiatan {
-    background-color: #ffffff;
+.member-info .nama {
+    margin: 0 0 5px 0;
+    font-size: 18px;
+    color: #2c3e50;
 }
 
-.kegiatan-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-}
-
-.kegiatan-card {
-    background-color: #f8f9fa;
-    padding: 30px;
-    border-radius: 8px;
-    text-align: center;
-    border-top: 4px solid #3498db;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.kegiatan-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-}
-
-.kegiatan-icon {
-    font-size: 48px;
+.member-info .jabatan {
+    display: block;
+    font-size: 14px;
     color: #3498db;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.member-info .deskripsi {
+    font-size: 13px;
+    color: #6c757d;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* --- Aturan Responsive untuk Mobile --- */
+@media (max-width: 992px) {
+    .level {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    .level:not(:first-child) {
+        margin-top: 20px;
+    }
+}
+  
+/* ======================================= */
+/* ===      HALAMAN ACARA              === */
+/* ======================================= */
+
+#daftar-acara h2 {
+    text-align: left;
     margin-bottom: 20px;
+    padding-left: 15px;
+    border-left: 4px solid #3498db;
 }
 
-.kegiatan-card h3 { margin-top: 0; font-size: 20px; }
-.kegiatan-card p { font-size: 15px; line-height: 1.6; color: #555; }
-
-/* ======================================= */
-/* ===      HALAMAN ACARA (TIMELINE)   === */
-/* ======================================= */
-.timeline {
-    position: relative;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 40px 0;
-}
-
-.timeline::after {
-    content: '';
-    position: absolute;
-    width: 3px;
-    background-color: #e9ecef;
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    margin-left: -1.5px;
-}
-
-.timeline-header {
-    padding: 10px 30px;
-    background-color: #3498db;
-    color: white;
-    text-align: center;
-    border-radius: 50px;
-    position: relative;
-    z-index: 1;
-    width: fit-content;
-    margin: 20px auto;
-}
-.timeline-header h2 { color: white; margin: 0; font-size: 20px; }
-.timeline-header i { margin-right: 10px; }
-
-.timeline-item {
-    padding: 10px 40px;
-    position: relative;
-    width: 50%;
-    box-sizing: border-box;
-}
-.timeline-item:nth-child(odd) { left: 0; }
-.timeline-item:nth-child(even) { left: 50%; }
-.timeline-dot {
-    content: '';
-    position: absolute;
-    width: 15px;
-    height: 15px;
-    background-color: white;
-    border: 4px solid #3498db;
-    top: 35px;
-    border-radius: 50%;
-    z-index: 1;
-}
-.timeline-item:nth-child(odd) .timeline-dot { right: -7.5px; }
-.timeline-item:nth-child(even) .timeline-dot { left: -7.5px; }
-
-.timeline-content {
-    background-color: white;
-    border-radius: 8px;
+.event-card {
+    flex: 0 0 100%; /* Kartu mengambil lebar penuh dari parentnya */
+    max-width: 700px; /* Batas lebar maksimum kartu */
+    display: flex;
+    background-color: #fff;
+    border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-    overflow: hidden;
+    overflow: hidden; /* Penting agar gambar tidak keluar dari border-radius */
+    scroll-snap-align: center; /* Posisi berhenti scroll di tengah */
+}
+
+.event-image {
+    flex: 0 0 250px; /* Lebar gambar tetap 250px */
+    background-color: #333;
+}
+
+.event-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Gambar akan mengisi area tanpa distorsi */
     transition: transform 0.3s ease;
 }
-.timeline-content:hover { transform: translateY(-5px); }
-.timeline-content img { width: 100%; height: 150px; object-fit: cover; }
-.timeline-content h3 { margin: 15px 20px 5px 20px; font-size: 20px; }
-.timeline-content p { margin: 0 20px 15px 20px; font-size: 14px; color: #555; }
-.timeline-content .location { font-style: italic; color: #777; margin-bottom: 10px; }
-.timeline-content .location i { margin-right: 5px; }
-.btn-timeline {
-    display: inline-block;
-    background-color: #3498db;
-    color: white;
-    padding: 8px 15px;
-    text-decoration: none;
-    border-radius: 5px;
-    margin: 0 20px 20px 20px;
+
+.event-card:hover .event-image img {
+    transform: scale(1.05); /* Efek zoom pada gambar saat di-hover */
+}
+
+.event-details {
+    padding: 25px;
+    flex: 1;
+}
+
+.event-details h3 {
+    margin-top: 0;
+    font-size: 22px;
+}
+
+.event-details p {
+    margin: 5px 0 10px 0;
+    color: #555;
+    line-height: 1.6;
+}
+
+.event-details p.info {
     font-size: 14px;
-    font-weight: 600;
-    transition: background-color 0.2s;
-}
-.btn-timeline:hover { background-color: #2980b9; }
-
-/* ======================================= */
-/* ===            FOOTER               === */
-/* ======================================= */
-footer {
-    background-color: #2c3e50;
-    color: #ccc;
-    text-align: center;
-    padding: 25px 0;
+    color: #777;
+    margin-bottom: 5px;
 }
 
-/* ======================================= */
-/* ===      ATURAN RESPONSIVE         === */
-/* ======================================= */
-@media (max-width: 992px) {
-    .visi-misi-grid { grid-template-columns: 1fr; }
-    .kegiatan-grid { grid-template-columns: repeat(2, 1fr); }
-    .level { flex-direction: column; align-items: center; gap: 20px; }
-    .level:not(:first-child) { margin-top: 20px; }
+.section-divider {
+    border: 0;
+    height: 1px;
+    background-color: #e0e0e0;
+    margin: 60px 0;
 }
 
+/* --- Aturan Responsive untuk Kartu Acara --- */
 @media (max-width: 768px) {
-    .hero h1 { font-size: 36px; }
-    .hero p { font-size: 18px; }
-    section { padding: 60px 0; }
-    section h2 { font-size: 30px; }
-    .kegiatan-grid { grid-template-columns: 1fr; }
-
-    /* --- Menu Hamburger --- */
-    .menu-toggle { display: flex; }
-    .navbar {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        background-color: white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transform: translateX(100%);
-        transition: transform 0.3s ease-in-out;
+    .event-card {
+        flex-direction: column; /* Ubah layout jadi vertikal di mobile */
+        max-width: 320px;
     }
-    .navbar.active { transform: translateX(0); }
-    .navbar ul { flex-direction: column; text-align: center; gap: 20px; }
-    .navbar a { font-size: 24px; }
-    .menu-toggle.active .bar:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
-    .menu-toggle.active .bar:nth-child(2) { opacity: 0; }
-    .menu-toggle.active .bar:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
-
-    /* --- Timeline Mobile --- */
-    .timeline::after { left: 31px; }
-    .timeline-item { width: 100%; padding-left: 70px; padding-right: 15px; }
-    .timeline-item:nth-child(even) { left: 0%; }
-    .timeline-dot { left: 23px; }
+    .event-image {
+        flex-basis: 200px; /* Tinggi gambar di mobile */
+        width: 100%;
+    }
 }
 
-@media (min-width: 1024px) {
-    .carousel-btn { display: block; }
-    .carousel-track { overflow-x: hidden; }
-}
+ini css nya tolong cari dan rubah

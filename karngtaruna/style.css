@@ -164,21 +164,24 @@ nav a.active {
 
 .carousel-wrapper {
     position: relative;
-    padding: 0 15px; /* Memberi sedikit ruang di sisi */
-    box-sizing: border-box;
+    overflow: hidden;
+    /* Padding dihilangkan dari sini agar 'jendela' tetap lebar */
 }
 
 .carousel-track {
     display: flex;
     gap: 20px;
-    overflow-x: auto; /* Memungkinkan scroll/swipe horizontal */
-    scroll-snap-type: x mandatory; /* Efek berhenti yang rapi saat scroll */
-    padding-bottom: 20px; /* Jarak agar shadow tidak terpotong */
-    -ms-overflow-style: none;  /* Sembunyikan scrollbar di IE & Edge */
-    scrollbar-width: none;  /* Sembunyikan scrollbar di Firefox */
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    /* Padding ditambahkan di sini untuk memberi ruang di awal dan akhir scroll */
+    padding: 0 25px; 
+    padding-bottom: 20px;
+    /* Properti untuk menyembunyikan scrollbar */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 .carousel-track::-webkit-scrollbar {
-    display: none; /* Sembunyikan scrollbar di Chrome, Safari, dll. */
+    display: none;
 }
 
 .showcase-card {
@@ -373,4 +376,5 @@ footer {
         overflow-x: hidden;
     }
 }
+
 

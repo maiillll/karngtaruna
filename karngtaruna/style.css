@@ -156,31 +156,51 @@ nav a.active {
 }
 
 /* ======================================= */
-/* ===        PROGRAM UNGGULAN         === */
+/* ===    PROGRAM UNGGULAN (CAROUSEL)    === */
 /* ======================================= */
 #program-unggulan {
     background-color: #2c3e50;
+    padding: 80px 0;
 }
 
 #program-unggulan h2 {
     color: #ffffff;
+    text-align: center;
+    font-size: 36px;
+    margin-top: 0;
+    margin-bottom: 50px;
 }
 
-.showcase-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 40px;
+.carousel-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden; /* Sembunyikan kartu yang di luar area */
 }
+
+.carousel-track {
+    display: flex;
+    gap: 20px;
+    padding-bottom: 20px; /* Jarak agar shadow tidak terpotong */
+    /* Kita akan menggeser track ini dengan JavaScript */
+    overflow-x: auto; /* Fallback jika JS mati & untuk scroll di mobile */
+    scroll-snap-type: x mandatory; /* Efek scroll yg lebih rapi */
+    -ms-overflow-style: none;  /* Sembunyikan scrollbar di IE dan Edge */
+    scrollbar-width: none;  /* Sembunyikan scrollbar di Firefox */
+}
+.carousel-track::-webkit-scrollbar {
+    display: none; /* Sembunyikan scrollbar di Chrome, Safari, Opera */
+}
+
 
 .showcase-card {
+    flex: 0 0 300px; /* Lebar setiap kartu, jangan mengecil/membesar */
     background-color: #ffffff;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    width: 300px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer; /* Ubah kursor menjadi tangan */
+    scroll-snap-align: start; /* Titik berhenti scroll */
 }
 
 .showcase-card:hover {
@@ -193,7 +213,7 @@ nav a.active {
     margin: 20px 20px 0 20px;
     border-radius: 15px;
     object-fit: cover;
-    aspect-ratio: 4/3; /* Menjaga rasio gambar */
+    aspect-ratio: 4/3;
 }
 
 .showcase-card .card-body {
@@ -205,65 +225,109 @@ nav a.active {
     font-size: 22px;
 }
 
-/* Kartu Tengah yang Melayang */
-.showcase-card-center {
-    width: 320px;
-    padding-top: 80px;
-    position: relative;
+/* Tombol Navigasi Carousel */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #2c3e50;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    display: none; /* Sembunyikan di mobile, kita pakai scroll */
+}
+.carousel-btn.prev { left: -20px; }
+.carousel-btn.next { right: -20px; }
+
+/* Tampilkan tombol hanya di layar besar */
+@media (min-width: 769px) {
+    .carousel-btn { display: block; }
+    .carousel-track { overflow-x: hidden; } /* Matikan scroll jika ada tombol */
 }
 
-.floating-img-wrapper {
+/* ======================================= */
+/* ===          MODAL (POPUP)          === */
+/* ======================================= */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    opacity: 0; /* Sembunyikan awalnya */
+    pointer-events: none; /* Tidak bisa diklik saat tersembunyi */
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-content {
+    /* Menggunakan gaya dari .showcase-card-center sebelumnya */
+    position: relative;
+    width: 340px;
+    padding-top: 80px;
+    background-color: #fff;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+    
+    /* Animasi saat muncul */
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+.modal-overlay.active .modal-content {
+    transform: scale(1);
+}
+
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: #888;
+    cursor: pointer;
+}
+
+/* Menata ulang gaya yang sudah ada untuk modal */
+.modal-content .floating-img-wrapper {
     width: 200px;
     height: 130px;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
     position: absolute;
     top: -60px;
     left: 50%;
     transform: translateX(-50%);
-    transition: transform 0.3s ease;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
 }
-
-.floating-img-wrapper img {
+.modal-content .floating-img-wrapper img {
     width: 100%;
     height: 100%;
     border-radius: 15px;
     object-fit: cover;
 }
+.modal-content .card-body-center { padding: 20px 30px 30px 30px; }
+.modal-content h2 { font-size: 24px; margin-top: 0; }
+.modal-content p { font-size: 15px; color: #666; margin-bottom: 25px; }
 
-.showcase-card-center .card-body-center {
-    padding: 20px 30px 30px 30px;
-}
-
-.showcase-card-center h2 {
-    font-size: 24px;
-}
-
-.showcase-card-center p {
-    font-size: 15px;
-    color: #666;
-    margin-bottom: 25px;
-}
-
-.btn-read-more {
-    background-color: #252525;
-    color: #ffffff;
-    padding: 12px 30px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: background-color 0.2s ease, transform 0.2s ease;
-}
-
-.btn-read-more:hover {
-    background-color: #000000;
-    transform: scale(1.05);
-}
-
-.showcase-card-center:hover .floating-img-wrapper {
-    transform: translateX(-50%) translateY(-10px) scale(1.05);
-}
-
+    
 
 /* ======================================= */
 /* ===            FOOTER               === */
@@ -305,3 +369,4 @@ footer {
         font-size: 30px;
     }
 }
+

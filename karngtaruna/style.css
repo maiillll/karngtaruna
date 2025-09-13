@@ -344,15 +344,7 @@ nav a.active {
 
 
 
-/* --- Posisi Spesifik untuk Tombol Kiri & Kanan --- */
-/* Menggunakan nilai negatif untuk meletakkan tombol DI LUAR area kartu */
-.carousel-btn.prev {
-    left: -22px; 
-}
 
-.carousel-btn.next {
-    right: -22px;
-}
 
 /* ======================================= */
 /* ===          MODAL (POPUP)          === */
@@ -725,4 +717,5 @@ footer {
 }
 
 ini css nya tolong cari dan rubah
+
 

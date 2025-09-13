@@ -342,48 +342,7 @@ nav a.active {
 /* ===    GAYA BARU TOMBOL CAROUSEL      === */
 /* ======================================= */
 
-.carousel-btn {
-    /* --- Posisi & Ukuran --- */
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
-    width: 45px;
-    height: 45px;
 
-    /* --- Desain Visual --- */
-    background-color: #ffffff;
-    border: none;
-    border-radius: 50%; /* Membuat tombol menjadi bulat sempurna */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Bayangan halus untuk efek 3D */
-    color: #2c3e50; /* Warna ikon panah */
-    cursor: pointer;
-
-    /* --- Tampilan Ikon di Dalam Tombol --- */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 18px;
-
-    /* --- Efek Transisi Halus --- */
-    transition: transform 0.2s ease, opacity 0.3s ease, background-color 0.2s ease;
-
-    /* --- Visibilitas (Sembunyikan Awalnya) --- */
-    opacity: 0;
-    pointer-events: none;
-}
-
-/* --- Memunculkan Tombol Saat Mouse Hover di Area Carousel --- */
-.carousel-wrapper:hover .carousel-btn {
-    opacity: 1;
-    pointer-events: auto;
-}
-
-/* --- Efek Hover pada Tombol Itu Sendiri --- */
-.carousel-btn:hover {
-    transform: translateY(-50%) scale(1.1); /* Sedikit membesar */
-    background-color: #f1f1f1;
-}
 
 /* --- Posisi Spesifik untuk Tombol Kiri & Kanan --- */
 /* Menggunakan nilai negatif untuk meletakkan tombol DI LUAR area kartu */
@@ -393,14 +352,6 @@ nav a.active {
 
 .carousel-btn.next {
     right: -22px;
-}
-
-/* --- Penyesuaian untuk Tampilan Mobile --- */
-/* Di mobile, tombol lebih baik disembunyikan agar tidak mengganggu swipe */
-@media (max-width: 768px) {
-    .carousel-btn {
-        display: none;
-    }
 }
 
 /* ======================================= */
@@ -774,3 +725,4 @@ footer {
 }
 
 ini css nya tolong cari dan rubah
+

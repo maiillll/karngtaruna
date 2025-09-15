@@ -98,10 +98,10 @@
             <p>&copy; 2025 Karang Taruna RW18. Dibuat dengan ❤️ untuk pemuda.</p>
         </div>
     </footer>
+        <script> 
+        // Letakkan kode ini di file script.js Anda
 
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
     
     // --- LOGIKA UNTUK MENU HAMBURGER ---
     const menuToggle = document.getElementById('mobile-menu');
@@ -114,9 +114,127 @@
             menuToggle.classList.toggle('active');
         });
     }
+
+    // --- LOGIKA UNTUK CAROUSEL (DARI SEBELUMNYA) ---
+    const initCarousel = (carousel) => {
+        const track = carousel.querySelector('.carousel-track');
+        if (!track) return;
+
+        const cards = Array.from(track.children);
+        const nextButton = carousel.querySelector('.next');
+        const prevButton = carousel.querySelector('.prev');
+        
+        if (cards.length === 0 || !nextButton || !prevButton) {
+            if (nextButton) nextButton.style.display = 'none';
+            if (prevButton) prevButton.style.display = 'none';
+            return;
+        }
+
+        const cardWidth = cards[0].getBoundingClientRect().width;
+        const gap = 20;
+        let currentIndex = 0;
+
+        const moveToCard = (index) => {
+            if (index < 0) index = 0;
+            if (index > cards.length - 1) index = cards.length - 1;
+            
+            track.style.transform = 'translateX(-' + index * (cardWidth + gap) + 'px)';
+            currentIndex = index;
+        };
+
+        nextButton.addEventListener('click', () => moveToCard(currentIndex + 1));
+        prevButton.addEventListener('click', () => moveToCard(currentIndex - 1));
+    };
+
+    const allCarousels = document.querySelectorAll('.carousel-wrapper');
+    allCarousels.forEach(carousel => {
+        initCarousel(carousel);
+    });
+
+});
+                          
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // --- LOGIKA CAROUSEL ---
+            const track = document.querySelector('.carousel-track');
+            const cards = Array.from(track.children);
+            const nextButton = document.getElementById('nextBtn');
+            const prevButton = document.getElementById('prevBtn');
+            
+            // Cek jika elemen ada sebelum melanjutkan
+            if (track && cards.length > 0 && nextButton && prevButton) {
+                const cardWidth = cards[0].getBoundingClientRect().width + 20; // 20 adalah gap
+                let currentIndex = 0;
+
+                function moveToCard(index) {
+                    if (index < 0) index = 0;
+                    if (index >= cards.length) index = cards.length - 1;
+                    
+                    track.style.transform = 'translateX(-' + index * cardWidth + 'px)';
+                    currentIndex = index;
+                }
+
+                nextButton.addEventListener('click', () => {
+                    // Cek jika masih ada ruang untuk scroll
+                    const remainingScroll = track.scrollWidth - track.clientWidth - (currentIndex * cardWidth);
+                    if (remainingScroll > 1) { // Beri toleransi 1px
+                         moveToCard(currentIndex + 1);
+                    }
+                });
+
+                prevButton.addEventListener('click', () => {
+                    moveToCard(currentIndex - 1);
+                });
+            }
+
+
+            // --- LOGIKA MODAL ---
+            const modalOverlay = document.getElementById('detailModal');
+            const modalImage = document.getElementById('modalImage');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalDescription = document.getElementById('modalDescription');
+            const closeModal = document.getElementById('closeModal');
+
+            // Cek jika elemen modal ada
+            if(modalOverlay) {
+                cards.forEach(card => {
+                    card.addEventListener('click', () => {
+                        // Ambil data dari atribut data-* kartu yang diklik
+                        const image = card.dataset.image;
+                        const title = card.dataset.title;
+                        const description = card.dataset.description;
+
+                        // Masukkan data ke dalam elemen modal
+                        modalImage.src = image;
+                        modalTitle.textContent = title;
+                        modalDescription.textContent = description;
+
+                        // Tampilkan modal
+                        modalOverlay.classList.add('active');
+                    });
+                });
+
+                function hideModal() {
+                    modalOverlay.classList.remove('active');
+                }
+
+                closeModal.addEventListener('click', hideModal);
+                
+                // Tutup modal jika klik di luar area konten
+                modalOverlay.addEventListener('click', (event) => {
+                    if (event.target === modalOverlay) {
+                        hideModal();
+                    }
+                });
+            }
+        });
     </script>
+    
+
+
 </body>
 </html>
+
 
 
 
